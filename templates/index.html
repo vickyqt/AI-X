@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get True Information Using AI</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✅</text></svg>">
+    <link rel="stylesheet" href="{{ url_for('static', filename='all.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        .typing-effect {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid var(--primary-blue);
+            animation: typing 3.5s steps(40) 1s 1 normal both;
+            color: var(--primary-blue);
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid var(--primary-blue);
+            animation: typing 3.5s steps(40) 1s 1 normal both;
+            color: var(--primary-blue);
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3>Verification History</h3>
+            <button class="clear-history-btn" id="clearHistoryBtn" title="Clear All History">
+                <i class="fas fa-trash-alt"></i>
+            </button>
+        </div>
+        <ul class="chat-history" id="chatHistory">
+            <!-- History items will be populated by JavaScript -->
+        </ul>
+    </aside>
+
+    <div class="main-content" id="mainContent">
+        <header>
+            <button class="sidebar-toggle" id="sidebarToggle" title="Toggle History Sidebar">
+                <i class="fas fa-bars"></i>
+            </button>
+            <h1 class="typewriter">Get True Information Using AI</h1>
+            <p>Verify the correctness of any information you desire with AI</p>
+        </header>
+
+        <main>
+            <section class="input-section">
+                <textarea id="userInput" placeholder="Enter text to verify...&#10;&#10;Example: 'The Earth is flat and orbits around the Sun.'&#10;&#10;Press Ctrl+Enter to verify." rows="8" aria-label="Text to verify"></textarea>
+                <button id="verifyBtn" class="primary-btn">
+                    <span class="btn-text">Verify Input</span>
+                    <div class="spinner" hidden aria-hidden="true"></div>
+                </button>
+            </section>
+
+            <section class="result-section" id="resultSection" hidden aria-live="polite">
+                <h2>Verification Result</h2>
+                <div class="result-card">
+                    <p><strong>Is Correct:</strong> <span id="isCorrect" aria-live="assertive"></span></p>
+                    <p><strong>Confidence:</strong> <span id="confidence"></span></p>
+                    <p><strong>Reasoning:</strong> <span id="reasoning"></span></p>
+                    <p><strong>Suggestions:</strong> <span id="suggestions"></span></p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 Get True Information Using AI. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
